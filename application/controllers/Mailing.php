@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- *
+ * class: Mailing
  */
 class Mailing extends CI_Controller
 {
@@ -10,7 +10,12 @@ class Mailing extends CI_Controller
     public $Error_heading = array();
     public $Error_message = array();
 
-    function __construct()
+    /**
+     * mailing constructor.
+     *
+     * @return void
+     */ 
+    public function __construct()
     {
         parent::__construct();
         $this->load->model('Model_mailing', 'Mailing');
@@ -20,10 +25,11 @@ class Mailing extends CI_Controller
         $this->Session     = $this->session->userdata('logged_in');
         $this->Permissions = $this->session->userdata('Permissions');
     }
-    // END constructor
 
     /**
-     * Index for mailing backend
+     * Index for mailing backend. 
+     * 
+     * @return view|redirect
      */
     public function index()
     {
@@ -51,7 +57,9 @@ class Mailing extends CI_Controller
     }
 
     /**
-     *
+     * Send all the mails. 
+     * 
+     * @return redirect.
      */
     public function Mail()
     {
@@ -107,7 +115,9 @@ class Mailing extends CI_Controller
     }
 
     /**
-     * Voeg een email adress toe
+     * Voeg een email adress toe.
+     * 
+     * @return redirect
      */
     public function Add_address()
     {
@@ -123,6 +133,8 @@ class Mailing extends CI_Controller
 
     /**
      * Delete een email adres.
+     * 
+     * @return redirect.
      */
     public function Delete_address()
     {
@@ -137,7 +149,9 @@ class Mailing extends CI_Controller
     }
 
     /**
-     *
+     * Set a user non active for the mailing. 
+     * 
+     * @return redirect
      */
     public function Inactief()
     {
@@ -152,7 +166,9 @@ class Mailing extends CI_Controller
     }
 
     /**
+     * Set the user active for the mailing. 
      *
+     * @return redirect
      */
     public function Actief()
     {
