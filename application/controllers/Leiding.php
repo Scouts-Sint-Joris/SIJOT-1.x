@@ -1,17 +1,17 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
 session_start(); //we need to call PHP's session object to access it through CI
+
+/**
+ * @author: Tim Joosten
+ * @copyright: Closed License, Tim Joosten
+ * @package: Scouts website (http://www.st-joris-turnhout.be)
+ *
+ * @todo Clean out comments
+ * @todo Clean out variables
+ */
 class leiding extends CI_Controller
 {
-
-    /**
-     * @author: Tim Joosten
-     * @copyright: Closed License, Tim Joosten
-     * @package: Scouts website (http://www.st-joris-turnhout.be)
-     *
-     * @todo Clean out comments
-     * @todo Clean out variables
-     */
-
     // Constructor
     public $Session       = array();
     public $Permissions   = array();
