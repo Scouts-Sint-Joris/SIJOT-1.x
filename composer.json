@@ -1,0 +1,14 @@
+{
+    "name": "root/scouts-website",
+    "description": "Scouts website st-joris, Turnhout",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim Joosten",
+            "email": "Topairy@gmail.com"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "^2.3"
+    }
+}

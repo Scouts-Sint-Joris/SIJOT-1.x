@@ -1,0 +1,97 @@
+// Color variables - Takken
+@color-kapoenen:   #ffff00;
+@color-welpen:     #228b22;
+@color-jonggivers: #f5821f;
+@color-givers:     #256f91;
+@color-jins:       #ed1c23;
+@color-leiding:    #663399;
+
+// Color variables - Various
+@green-border:     #aac12b;
+@green:            #bdd732;
+@white:            #ffffff;
+@white-border:     #dddddd;
+@color-border:     #aac12b;
+
+.background {
+  padding-top: 75px;
+  background: @green url('../img/background.png') no-repeat fixed center 110px;
+}
+
+.font-heading {
+  font-family: Allan, helvetica, arial, sans-serif;
+  font-size: 22px;
+}
+
+.font-title {
+  font-family: Allan, helvetica, arial, sans-serif;
+  font-size: 18px;
+}
+
+.border {
+  border: 1.2px solid @color-border;
+}
+
+.Icon-color,
+.Title-color {
+  color: @green;
+}
+
+.color-white {
+  background-color: @white;
+  padding: 6px;
+  border: 1.2px solid @white-border;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.color-kapoenen {
+  background-color: @color-kapoenen;
+}
+
+.color-welpen {
+  background-color: @color-welpen;
+}
+
+.color-jonggivers {
+  background-color: @color-jonggivers;
+}
+
+.color-givers {
+  background-color: @color-givers;
+}
+
+.color-jins {
+  background-color: @color-jins;
+}
+
+.color-leiding {
+  background-color: @color-leiding;
+}
+
+.thumbnail {
+  position: relative;
+  overflow: hidden;
+}
+
+.caption {
+  position: absolute;
+  top: -100%;
+  right: 0;
+  background: rgba(66, 139, 202, 0.75);
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+  text-align: center;
+  color: @white !important;
+  z-index: 2;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.thumbnail:hover .caption {
+  top: 0%;
+}
