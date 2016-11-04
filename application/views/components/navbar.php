@@ -70,12 +70,12 @@
                 </a>
               </li>
 
-              <li <?php if($Active == 4): ?> class="active" <?php endif; ?>>
-                <a href="/assets/files/Planning.pdf">
-                  <span class="fa fa-file-text-o Icon-color"></span>
-                  Planning
-                </a>
-              </li>
+              <!-- <li <?php if($Active == 4): ?> class="active" <?php endif; ?>> -->
+                <!-- <a href="/assets/files/Planning.pdf"> -->
+                  <!-- <span class="fa fa-file-text-o Icon-color"></span> -->
+                  <!-- Planning -->
+                <!-- </a> -->
+              <!-- </li> -->
 
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
