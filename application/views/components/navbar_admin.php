@@ -31,11 +31,11 @@
                 </a>
               </li>
 
-              <li class="<?php if($Active == 1): ?> active <?php endif; ?> dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url() . 'Takken'; ?>">
-                  <span class="fa fa-asterisk Icon-color"></span>
-                  Media
-                </a>
+              <!-- <li class="<?php if($Active == 1): ?> active <?php endif; ?> dropdown"> -->
+                <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo base_url() . 'Takken'; ?>"> -->
+                  <!-- <span class="fa fa-asterisk Icon-color"></span> -->
+                  <!-- Media -->
+                <!-- </a> -->
 
                 <ul class="dropdown-menu" role="menu">
                   <li>

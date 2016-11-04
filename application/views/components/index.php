@@ -79,11 +79,11 @@
                 </a>
               </li>
 
-              <li>
-                <a href="/assets/files/Planning.pdf">
-                  <span class="fa fa-file-text-o Icon-color"></span> Planning
-                </a>
-              </li>
+              <!-- <li> -->
+                <!-- <a href="/assets/files/Planning.pdf"> -->
+                  <!-- <span class="fa fa-file-text-o Icon-color"></span> Planning -->
+                <!-- </a> -->
+              <!-- </li> -->
 
               <li>
                 <a href="<?php echo base_url(); ?>Info">
