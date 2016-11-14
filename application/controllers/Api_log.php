@@ -4,7 +4,6 @@ require APPPATH . '/libraries/REST_Controller.php';
 
 class Api_log extends REST_Controller
 {
-
     /**
      * Class constructor.
      */
@@ -60,9 +59,9 @@ class Api_log extends REST_Controller
             $this->response($logs, 200); // OK (200) Being the response code
         } else {
             // Set the response and exit.
-            $this->response(array(
-                'Message' => 'No Logs were found for this user.',
-            ), 404); // NOT_FOUND (404) being the response code.
+            // -----
+            // NOT_FOUND (404) being the response code.
+            $this->response(array('Message' => 'No Logs were found for this user.'), 404);
         }
     }
 

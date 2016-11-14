@@ -79,7 +79,7 @@ class VerifyLogin extends CI_Controller
                    );
                 }
 
-                $this->DBsession->setUserId(
+                    $this->DBsession->setUserId(
                     $this->session->userdata('logged_in', 'id')
                 );
 
