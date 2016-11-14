@@ -7,20 +7,21 @@ Updates zullen ook tevens de Keep a CHANGELOG principes volgen.
 ### Volgende release - 01/01/2017
 
 ## Toegevoegd
- 
-- Blade engine ondersteuning. 
+
+- [Licentie](LICENSE) bestand toegevoegd. 
+- [Changelog](CHANGELOG.md) bestand toegevoegd.
 
 ## Niet meer ondersteund
 
-- Default template engine van CodeIgniter. 
+Nothing. 
 
-## Gefixt: 
+## Aanpassingen: 
 
 Nothing
 
 ## Verwijderd
 
-Nothing
+- `cache` en `controller` directories verwijderd uit de `config` directory.
 
 ## Beveiliging 
 
