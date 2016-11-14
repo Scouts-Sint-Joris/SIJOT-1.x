@@ -17,7 +17,7 @@ Nothing.
 
 ## Aanpassingen: 
 
-Nothing
+- Update nodejs dependencies.
 
 ## Verwijderd
 
