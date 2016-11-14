@@ -1,0 +1,15 @@
+#####################################################
+#         .gitaatributes | SIJOT platform           #
+#####################################################
+
+# Exclude testing files. These files don't belong,
+# in production environments.
+# ---------------------------------------------------
+
+# Exclude general documentation files in the repo.
+# ---------------------------------------------------
+
+# Line endings & standards
+# ---------------------------------------------------
+* text=auto
+/.editorconfig export-ignore
