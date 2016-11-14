@@ -50,12 +50,7 @@
               </div>
 
               <!-- Description -->
-              <?php
-                $text = $Tak->Beschrijving;
-                echo Parsedown::instance()
-                              ->setBreaksEnabled(true)
-                              ->parse($text);
-              ?>
+              <?php echo Parsedown::instance()->setBreaksEnabled(true)->parse($Tak->Beschrijving); ?>
             <?php endforeach; ?>
           </div>
         </div>
