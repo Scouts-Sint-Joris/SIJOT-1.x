@@ -8,6 +8,7 @@ Updates zullen ook tevens de Keep a CHANGELOG principes volgen.
 
 ## Toegevoegd
 
+- [Database](database.sql) bestand toegevoegd.
 - [Licentie](LICENSE) bestand toegevoegd. 
 - [Changelog](CHANGELOG.md) bestand toegevoegd.
 
