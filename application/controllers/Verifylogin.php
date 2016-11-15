@@ -57,33 +57,29 @@ class VerifyLogin extends CI_Controller
             $permission_array = array();
 
             foreach ($result as $row) {
-                $auth_array = array(
-                    'id'       => $row->id,
-                    'username' => $row->username,
-                    'Admin'    => $row->Admin_role,
-                    'Tak'      => $row->Tak,
-                    'Theme'    => $row->Theme,
-                    'Email'    => $row->Mail,
-                );
+                $auth['id']       = $row->id;
+                $auth['username'] = $row->username;
+                $auth['Admin']    = $row->Admin_role;
+                $auth['Tak']      = $row->Tak;
+                $auth['Theme']    = $row->Theme;
+                $auth['Email']    = $row->Mail;
 
-                $this->session->set_userdata('logged_in', $auth_array);
-                $permissions = $this->user->permissions($auth_array['id']);
+                $this->session->set_userdata('logged_in', $auth);
+                $permissions = $this->user->permissions($auth['id']);
 
                 foreach($permissions as $permission) {
-                   $permission_array = array(
-                        'user_id'     => $auth_array['id'],
-                        'verhuur'     => $permission->verhuur,
-                        'mailinglist' => $permission->mailinglist,
-                        'drive'       => $permission->drive,
-                        'profilelen'  => $permission->profiles,
-                   );
+                    $perms['user_is']     = $auth['id'];
+                    $perms['verhuur']     = $permission->verhuur;
+                    $perms['mailinglist'] = $permission->mailinglist;
+                    $perms['drive']       = $permission->drive;
+                    $perms['profiles']    = $permission->profiles;
                 }
 
                     $this->DBsession->setUserId(
                     $this->session->userdata('logged_in', 'id')
                 );
 
-                $this->session->set_userdata('Permissions', $permission_array);
+                $this->session->set_userdata('Permissions', $perms);
 
                 // For debugging proposes only.
                 // -----------------------------

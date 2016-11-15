@@ -40,13 +40,10 @@
 		 */
 		public function do_upload() {
 			if($this->Session) {
-
-				$config = array(
-					'upload_path'   => './assets/files/',
-					'allowed_types' => 'pdf',
-					'file_name'     => 'Planning',
-					'overwrite'     => TRUE,
-				);
+                $config['upload_path']   = './assets/files/';
+                $config['allowed_types'] = 'pdf';
+                $config['file_name']     = 'Planning';
+                $config['overwrite']     = true;
 
 				// Library word niet constructor geladen.
 				// Omdat deze config variables bevat
@@ -56,10 +53,8 @@
 					$Session = $this->session->userdata('logged_in');
 
 					// Global Variables
-					$data = array(
-						'Title'  => 'Wijzig groentje',
-						'Active' => '9',
-					);
+                    $data['Title']  = 'Wijzig groentje';
+                    $data['Active'] = '9';
 
 					// Session Variables
 					// Possible to delete. Need to research this.

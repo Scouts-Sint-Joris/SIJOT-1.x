@@ -27,11 +27,9 @@
 		 */
 		public function index() {
 			if($this->Session && $this->Permissions['drive'] === 'Y') {
-				$Data = array(
-					'Title'  => 'St-Joris Cloud',
-					'Active' => '1',
-					'Files'  => $this->Drive->Files(),
-				);
+                $Data['Title']  = 'St-Joris Cloud';
+                $Data['Active'] = '1';
+                $Data['Files']  = $this->Drive->Files();
 
 				$this->load->view('components/admin_header', $Data);
 				$this->load->view('components/navbar_admin', $Data);
@@ -48,22 +46,17 @@
 		 */
 		public function Upload() {
 			if($this->session && $this->Permissions['drive'] === 'Y') {
-				
-				$config = array(
-					'upload_path' => './Drive/',
-					'allowed_types' => 'pdf|docx|jpg|jpeg|png|gif|txt',
-				);
+                $config['upload_path']   = './Drive/';
+                $config['allowed_types'] = 'pdf|docx|jpg|jpeg|png|gif|txt';
 
 				// Library word niet constructor geladen.
 				// Omdat deze config variables bevat
 				$this->load->library('upload', $config);
 
 				if (!$this->upload->do_upload()) {
-					$Flash = array(
-						'Class'   => 'alert alert-danger',
-						'Heading' => 'Ohh snap!',
-						'Info'    => 'er is iets misgelopen. U kunt uw bestand niet uploaden naar de Drive.',
-					);
+                    $Flash['Class']   = 'alert alert-danger';
+                    $Flash['Heading'] = 'Ohh snap!';
+                    $Flash['Info']    = 'Er is iets misgelopen. U kunt uw bestand niet uploaden naar de drive.';
 
 					$this->session->set_flashdata('Message', $Flash);
 
@@ -71,14 +64,12 @@
 					// echo $this->upload->display_errors();
 
 					redirect($_SERVER['HTTP_REFERER']);
-				}	else {
-					$this->Drive->Insert($this->upload->data());
+				} else {
+                    $this->Drive->Insert($this->upload->data());
 
-					$Flash = array(
-						'Class'   => 'alert alert-success',
-						'Heading' => 'Success!',
-						'Info'    => 'Uw bestand is successvol geupload naar de drive.',
-					);
+                    $Flash['Class']   = 'alert alert-success';
+                    $Flash['Heading'] = 'Success!';
+                    $Flash['Info']    = 'Uw bestand is successvol geupload naar de drive.';
 
 					$this->session->set_flashdata('Message', $Flash);
 					redirect($_SERVER['HTTP_REFERER']);
@@ -115,22 +106,18 @@
 					if (! unlink('./Drive/'. $file)) {
 						$this->Drive->Delete();
 
-						// Failure
-						$Flash = array(
-							'Class'   => 'alert alert-success',
-							'Heading' => 'Success!',
-							'Info'    => 'De file kon niet worden verwijderd.',
-						);
+                        // Failure
+                        $Flash['Class']   = 'alert alert-success';
+                        $Flash['Heading'] = 'Success!';
+                        $Flash['Info']    = 'De file kon niet worden verwijderd';
 
 						$this->session->set_flashdata('Message', $Flash);
 						redirect($_SERVER['HTTP_REFERER']);
 					} else {
 						// Success
-						$Flash = array(
-							'Class'   => 'alert alert-success',
-							'Heading' => 'Oh snapp!',
-							'Info'    => 'De file is successvol verwijderd.',
-						);
+                        $Flash['Class']   = 'alert alert-success';
+                        $Flash['Heading'] = 'Oh snapp!';
+                        $Flash['Info']    = 'De file is successvol verwijderd';
 
 						$this->session->set_flashdata('Message', $Flash);
 						redirect($_SERVER['HTTP_REFERER']);
@@ -139,11 +126,9 @@
 					// If the file not exists
 					$this->Drive->Delete();
 
-					$Flash = array(
-							'Class'   => 'alert alert-danger',
-							'Heading' => 'Ohh snap!',
-							'Info'    => 'De file kon niet worden gevonden op de server.',
-					);
+                    $Flash['Class']   = 'alert alert-danger';
+                    $Flash['Heading'] = 'Ohh snap!';
+                    $Flash['Info']    = 'De file kon niet worden gevonden op de server.';
 
 					$this->session->set_flashdata('Message', $Flash);
 					redirect($_SERVER['HTTP_REFERER']);

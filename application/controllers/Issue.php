@@ -31,10 +31,8 @@ class Issue extends CI_Controller
     public function Index()
     {
         if ($this->Session) {
-            $Data = array(
-                'Title' => 'Rapporteer een fout!',
-                'Active' => '145',
-            );
+            $Data['Title']  = 'Rapporteer een fout';
+            $Data['Active'] = '145';
 
             $this->load->view('components/admin_header', $Data);
             $this->load->view('components/navbar_admin');

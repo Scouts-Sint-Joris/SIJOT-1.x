@@ -42,27 +42,23 @@ class backend extends MY_Controller
     public function index()
     {
         if ($this->Session) {
-
-            $data = array(
-                'Title' => 'Admin Takken',
-                'Active' => '1',
-            );
+            $data['Title']  = 'Admin Takken';
+            $data['Active'] = '1';
 
             // Tak beschrijvingen
-            $DB = array(
-                'Kapoenen'   => $this->Takken->Tak_info('Kapoenen'),
-                'Welpen'     => $this->Takken->Tak_info('Welpen'),
-                'JongGivers' => $this->Takken->Tak_info('JongGivers'),
-                'Givers'     => $this->Takken->Tak_info('Givers'),
-                'Jins'       => $this->Takken->Tak_info('Jins'),
-                'Leiding'    => $this->Takken->Tak_info('Leiding'),
+            $DB['Kapoenen']   = $this->Takken->Tak_info('Kapoenen');
+            $DB['Welpen']     = $this->Takken->Tak_info('Welpen');
+            $DB['JongGivers'] = $this->Takken->Tak_info('JongGivers');
+            $DB['Givers']     = $this->Takken->Tak_info('Givers');
+            $DB['Jins']       = $this->Takken->Tak_info('Jins');
+            $DB['Leiding']    = $this->Takken->Tak_info('Leiding');
 
-                'Activiteiten_Kapoenen'   => $this->Activiteiten->Activiteiten('5', 'Kapoenen'),
-                'Activiteiten_Welpen'     => $this->Activiteiten->Activiteiten('5', 'Welpen'),
-                'Activiteiten_JongGivers' => $this->Activiteiten->Activiteiten('5', 'JongGivers'),
-                'Activiteiten_Givers'     => $this->Activiteiten->Activiteiten('5', 'Givers'),
-                'Activiteiten_Jins'       => $this->Activiteiten->Activiteiten('5', 'Jins'),
-            );
+            // Tak activiteiten
+            $DB['Activiteiten_Kapoenen']   = $this->Activiteiten->Activiteiten('5', 'Kapoenen');
+            $DB['Activiteiten_Welpen']     = $this->Activiteiten->Activiteiten('5', 'Welpen');
+            $DB['Activiteiten_JongGivers'] = $this->Activiteiten->Activiteiten('5', 'JongGivers');
+            $DB['Activiteiten_Givers']     = $this->Activiteiten->Activiteiten('5', 'Givers');
+            $DB['Activiteiten_Jins']       = $this->Activiteiten->Activiteiten('5', 'Jins');
 
             $this->load->view('components/admin_header', $data);
             $this->load->view('components/navbar_admin', $data);

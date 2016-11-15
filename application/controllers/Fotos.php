@@ -24,11 +24,9 @@ class Fotos extends CI_Controller
     // Client side
     public function index()
     {
-        $data = array(
-            'Title' => 'Fotos',
-            'Active' => '3',
-            'Foto' => $this->Images->select(),
-        );
+        $data['Title']  = 'Fotos';
+        $data['Active'] = '3';
+        $data['Foto']   = $this->Images->select();
 
         $this->load->view('components/header', $data);
         $this->load->view('components/navbar', $data);
@@ -38,11 +36,9 @@ class Fotos extends CI_Controller
 
     public function Tak()
     {
-        $data = array(
-            'Title'  => 'Fotos',
-            'Active' => '3',
-            'Foto'   => $this->Images->select_tak(),
-        );
+        $data['Title']  = 'Fotos';
+        $data['Active'] = '3';
+        $data['Foto']   = $this->Images->select_tak();
 
         $this->load->view('components/header', $data);
         $this->load->view('components/navbar', $data);
@@ -54,11 +50,9 @@ class Fotos extends CI_Controller
     public function Index_admin()
     {
         if ($this->Session) {
-            $data = array(
-                'Title' => 'Admin media',
-                'Active' => '3',
-                'DB' => $this->Images->Backend_select(),
-            );
+            $data['Title']  = 'Admin media';
+            $data['Active'] = '3';
+            $data['DB']     = $this->Images->Backend_select();
 
             $this->load->view('components/admin_header', $data);
             $this->load->view('components/navbar_admin', $data);
@@ -79,20 +73,15 @@ class Fotos extends CI_Controller
             // Logging
             // user_log($this->Session['username'], 'Heeft een foto of album geupload');
 
-            $config = array(
-                'allowed_types' => 'jpg',
-                'upload_path'    => './assets/fotos',
-            );
-
+            $config['allowed_types'] = 'jpg';
+            $config['upload_path']   = './assets/fotos';
 
             $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload()) {
-                $data = array(
-                    'Title' => 'Wijzig groentje',
-                    'Active' => '9',
-                    'DB' => $this->Images->Backend_select(),
-                );
+            if (! $this->upload->do_upload()) {
+                $data['Title']  = 'WIjzig groentje';
+                $data['Active'] = '9';
+                $data['DB']     = $this->Images->Backend_select();
 
                 $this->load->view('components/admin_header', $data);
                 $this->load->view('components/navbar_admin', $data);

@@ -29,11 +29,9 @@ class Mailing extends CI_Controller
     {
         if ($this->Session && $this->Permissions) {
             if ($this->Session['Admin'] == 1 || $this->Permissions['mailinglist'] == 'Y') {
-                $Data = array(
-                    'Title' => 'Mailing',
-                    'Active' => '6',
-                    'Mailing' => $this->Mailing->Mailing(),
-                );
+                $Data['Title']   = 'Mailing';
+                $Data['Active']  = '6';
+                $Data['Mailing'] = $this->Mailing->Mailing();
 
                 $this->load->view('components/admin_header', $Data);
                 $this->load->view('components/navbar_admin', $Data);
