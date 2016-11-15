@@ -266,7 +266,7 @@ class Verhuur extends CI_Controller
                 // Gobal variables
                 $Data['Title']        = 'verhuringen';
                 $Data['Active']       = '2';
-                $Data['Bevestigd']    = $this->Verhuring->Verhuur_api();
+                $Data['Bevestigd']    = $this->Verhuringen->Verhuur_api();
                 $Data['Notification'] = $this->Not->get();
 
                 // Pagination implmentation 
