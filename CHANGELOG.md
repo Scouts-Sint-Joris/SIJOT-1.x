@@ -19,6 +19,7 @@ Nothing.
 ## Aanpassingen: 
 
 - Update nodejs dependencies.
+- Array's in de controllers zijn opgeschoond. 
 
 ## Verwijderd
 
