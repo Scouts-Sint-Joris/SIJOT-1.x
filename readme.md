@@ -1,5 +1,5 @@
-St-Joris Turnhout, Website
-===============================
+![alt tag](https://github.com/Tjoosten/SVG-scss/blob/master/repo-assets/logo.jpg)
+
 [![Latest Version](https://img.shields.io/github/tag/Tjoosten/sijot-1.svg?style=flat&label=release)](https://github.com/tjoosten/sijot-1/tags)
 [![devDependency Status](https://david-dm.org/tjoosten/sijot-1/dev-status.svg)](https://david-dm.org/tjoosten/sijot-1#info=devDependencies)
 [![Dependency Status](https://david-dm.org/tjoosten/sijot-1.svg)](https://david-dm.org/tjoosten/sijot-1)
