@@ -36,17 +36,15 @@ class Takken extends CI_Controller
     {
         // Variable(s)
         // General
-        $Data = array(
-            'Title'      => 'Takken',
-            'Active'     => '1',
-            'Limit'      => '40',
-            'Kapoenen'   => $this->Takken->Tak_info('Kapoenen'),
-            'Welpen'     => $this->Takken->Tak_info('Welpen'),
-            'JongGivers' => $this->Takken->Tak_info('JongGivers'),
-            'Givers'     => $this->Takken->Tak_info('Givers'),
-            'Jins'       => $this->Takken->Tak_info('Jins'),
-            'Leiding'    => $this->Takken->Tak_info('Leiding'),
-        );
+        $Data['Title']      = 'Takken';
+        $Data['Active']     = '1';
+        $Data['Limit']      = '40';
+        $Data['Kapoenen']   = $this->Takken->Tak_info('Kapoenen');
+        $Data['Welpen']     = $this->Takken->Tak_info('Welpen');
+        $Data['JongGivers'] = $this->Takken->Tak_info('JongGivers');
+        $Data['Givers']     = $this->Takken->Tak_info('Givers');
+        $Data['Jins']       = $this->Takken->Tak_info('Jins');
+        $Data['Leiding']    = $this->Takken->Tak_info('Leiding');
         // == END Variables == //
 
         // View(s)
@@ -61,15 +59,13 @@ class Takken extends CI_Controller
      */
     public function Feed()
     {
-        $Data = array(
-            'feed_name'        => 'Activiteiten RSS feed',
-            'encoding'         => 'utf-8',
-            'feed_url'         => 'http://www.st-joris-turnhout.be/index.php/takken/Feed',
-            'page_description' => 'RSS over de tak activiteiten',
-            'page_language'    => 'en-en',
-            'creator_email'    => 'webmaster@st-joris-turnhout.be',
-            'Activiteiten'     => $this->Activiteiten->Kapoenen(5),
-        );
+        $Data['feed_name']        = 'Activiteiten RSS feed';
+        $Data['encoding']         = 'utf-8';
+        $Data['feed_url']         = 'http://www.st-joris-turnhout.be/index.php/takken/Feed';
+        $Data['page_description'] = 'RSS over de tak activiteiten';
+        $Data['page_language']    = 'en-en';
+        $Data['creator_email']    = 'webmaster@st-joris-turnhout.be';
+        $Data['Activiteiten']     = $this->Activiteiten->Kapoenen(5);
 
         header("Content-Type: application/rss+xml");
         $this->load->view('client/rss', $Data);
@@ -82,16 +78,12 @@ class Takken extends CI_Controller
     {
         // Variable(s)
         // General
-        $Data = array(
-            'Title'  => 'De Kapoenen',
-            'Active' => '1',
-        );
+        $Data['Title']  = 'De Kapoenen';
+        $Data['Active'] = '1';
 
         // Database
-        $DB = array(
-            'Beschrijving' => $this->Takken->Tak_info('Kapoenen'),
-            'Activiteiten' => $this->Activiteiten->Activiteiten('5', 'Kapoenen'),
-        );
+        $DB['Beschrijving'] = $this->Takken->Tak_info('Kapoenen');
+        $DB['Activiteiten'] = $this->Activiteiten->Activiteiten('5', 'Kapoenen');
         // == END Variables == //
 
         // View(s)
@@ -107,17 +99,12 @@ class Takken extends CI_Controller
      */
     public function Welpen()
     {
-
-        $Data = array(
-            'Title'  => 'De Welpen',
-            'Active' => '1',
-        );
+        $Data['Title']  = 'De Welpen';
+        $Data['Active'] = '1';
 
         // Database
-        $DB = array(
-            'Beschrijving' => $this->Takken->Tak_info('Welpen'),
-            'Activiteiten' => $this->Activiteiten->Activiteiten('5', 'Welpen'),
-        );
+        $DB['Beschrijving'] = $this->Takken->tak_info('Welpen');
+        $DB['Activiteiten'] = $this->Activiteiten->Activiteiten('5', 'Welpen');
         // == END Variables == //
 
         // View(s)
@@ -131,16 +118,12 @@ class Takken extends CI_Controller
     {
         // Variable(s)
         // General
-        $Data = array(
-            'Title'  => 'De Jong-Givers',
-            'Active' => '1',
-        );
+        $Data['Title']  = 'De Jong-Givers';
+        $Data['Active'] = '1';
 
         // Database
-        $DB = array(
-            'Beschrijving' => $this->Takken->Tak_info('JongGivers'),
-            'Activiteiten' => $this->Activiteiten->Activiteiten('5', 'JongGivers'),
-        );
+        $DB['Beschrijving'] = $this->Takken->Tak_info('JongGivers');
+        $DB['Activiteiten'] = $this->Activiteiten->Activiteiten('5', 'JongGivers');
         // == END Variables == //
 
         // View(s)
@@ -157,16 +140,12 @@ class Takken extends CI_Controller
     {
         // Variable(s)
         // General
-        $Data = array(
-            'Title'  => 'De Givers',
-            'Active' => '1',
-        );
+        $Data['title']  = 'De Givers';
+        $Data['Active'] = '1';
 
         // Database
-        $DB = array(
-            'Beschrijving' => $this->Takken->Tak_info('Givers'),
-            'Activiteiten' => $this->Activiteiten->Activiteiten('5', 'Givers'),
-        );
+        $DB['Beschrijving'] = $this->Takken->Tak_info('Givers');
+        $DB['Activiteiten'] = $this->Activiteiten->Activiteiten('5', 'Givers');
         // == END Variables == //
 
         // View(s)
@@ -181,15 +160,11 @@ class Takken extends CI_Controller
      */
     public function Jins()
     {
-        $Data = array(
-            'Title'  => 'De Jins',
-            'Active' => '1',
-        );
+        $Data['Title']  = 'De Jins';
+        $Data['Active'] = '1';
 
-        $DB = array(
-            'Beschrijving' => $this->Takken->Tak_info('Jins'),
-            'Activiteiten' => $this->Activiteiten->Activiteiten('5', 'Jins'),
-        );
+        $DB['Beschrijving'] = $this->Takken->Tak_info('Jins');
+        $DB['Activiteiten'] = $this->Activiteiten->Activiteiten('5', 'Jins');
 
         $this->load->view('components/header', $Data);
         $this->load->view('components/navbar', $Data);
@@ -202,12 +177,9 @@ class Takken extends CI_Controller
      */
     public function Leiding()
     {
-        $Data = array(
-            'Title'        => 'De Leiding',
-            'Active'       => '1',
-            'Beschrijving' => $this->Takken->Tak_info('Leiding'),
-        );
-
+        $Data['Title']        = 'De Leiding';
+        $Data['Active']       = '1';
+        $Data['Beschrijving'] = $this->Takken->Tak_info('Leiding');
 
         $this->load->view('components/header', $Data);
         $this->load->view('components/navbar', $Data);

@@ -22,7 +22,7 @@
 
       // Load helpers
       $this->load->dbutil();
-			$this->load->helper(array('logger');
+			$this->load->helper(array('logger'));
     }
 
 		/**

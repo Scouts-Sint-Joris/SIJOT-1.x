@@ -39,10 +39,8 @@ class Inschrijvingen extends CI_Controller
     // Client side
     public function Ontbijt_beschrijving()
     {
-        $Data = array(
-            'Title' => 'Inschrijvingen ontbijt',
-            'Active' => '10',
-        );
+        $Data['Title']  = 'Inschrijvingen ontbijt';
+        $Data['Active'] = '10';
 
         $this->load->view('components/header', $Data);
         $this->load->view('components/navbar', $Data);
@@ -52,11 +50,9 @@ class Inschrijvingen extends CI_Controller
 
     public function Ontbijt_inschrijving()
     {
-        $Data = array(
-            'Title' => 'Inschrijving ontbijt',
-            'Active' => '4',
-            'Datums' => $this->Inschrijving->Get_dates(),
-        );
+        $Data['Title']  = 'Inschrijving ontbijt';
+        $Data['Active'] = '4';
+        $Data['Datums'] = $this->Inschrijving->Get_dates();
 
         $this->load->view('components/header', $Data);
         $this->load->view('components/navbar', $Data);
@@ -67,19 +63,15 @@ class Inschrijvingen extends CI_Controller
     // Administrators side
     public function Admin_ontbijt()
     {
-        $Data = array(
-            'Title' => 'Admin inschrijvingen ontbijt',
-            'Active' => '4',
-        );
+        $Data['Title']  = 'Admin inschrijvingen ontbijt';
+        $Data['Active'] = '4';
 
         if ($this->Session) {
             if ($this->Session['Admin'] == 1) {
                 // Database values
-                $DB = array(
-                    'Ontbijt_datums' => $this->Inschrijving->Get_Dates_Full(),
-                    'Inschrijvingen' => $this->Inschrijving->Inschrijvingen_All(),
-                    'Datums' => $this->Inschrijving->Get_dates(),
-                );
+                $DB['Ontbijt_datums'] = $this->Inschrijving->Get_Dates_Full();
+                $DB['Inschrijvingen'] = $this->Inschrijving->Inschrijvingen_All();
+                $DB['Datums']         = $this->Inschrijving->Get_dates();
 
                 $this->load->view('components/admin_header', $Data);
                 $this->load->view('components/navbar_admin', $Data);
@@ -106,12 +98,10 @@ class Inschrijvingen extends CI_Controller
             $this->Inschrijving->InsertDB();
 
             // Variables User => Mail
-            $Input = array(
-                'Naam' => $this->input->post('Naam'),
-                'Voornaam' => $this->input->post('Voornaam'),
-                'Email' => $this->input->post('Email'),
-                'Personen' => $this->input->post('Personen'),
-            );
+            $Input['Naam']     = $this->input->post('Naam');
+            $Input['Voornaam'] = $this->input->post('Voornaam');
+            $Input['Email']    = $this->input->post('Email');
+            $Input['Personen'] = $this->input->post('Personen');
 
             // View voor email
             $mail_ontbijt = $this->load->view('email/ontbijt_inschrijving', $Input, TRUE);
@@ -139,10 +129,8 @@ class Inschrijvingen extends CI_Controller
                 // Logging
                 redirect('Inschrijvingen/Admin_ontbijt');
             } else {
-                $Data = array(
-                    'Heading' => $this->Error_heading,
-                    'Message' => $this->Error_message,
-                );
+                $Data['Heading'] = $this->Error_heading;
+                $Data['Message'] = $this->Error_message;
 
                 $this->load->view('errors/html/alert', $Data);
             }
@@ -172,10 +160,8 @@ class Inschrijvingen extends CI_Controller
 
                 redirect('Inschrijvingen/Admin_ontbijt');
             } else {
-                $Data = array(
-                    'Heading' => $this->Error_heading,
-                    'Message' => $this->Error_message,
-                );
+                $Data['Heading'] = $this->Error_heading;
+                $Data['Message'] = $this->Error_message;
 
                 $this->load->view('errors/html/alert', $Data);
             }
@@ -217,10 +203,8 @@ class Inschrijvingen extends CI_Controller
                 user_log($this->Session['username'], 'Heeft een inschrijving verwijderd.');
                 redirect('Admin_ontbijt');
             } else {
-                $Data = array(
-                    'Heading' => $this->Error_heading,
-                    'Message' => $this->Error_message,
-                );
+                $Data['Heading'] = $this->Error_heading;
+                $Data['Message'] = $this->Error_message;
 
                 $this->load->view('errors/html/alert', $Data);
             }

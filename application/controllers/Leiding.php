@@ -46,11 +46,9 @@ class leiding extends CI_Controller
      */
     public function Leidingsploeg()
     {
-        $Data = array(
-            'Title' => 'Leidingsploeg',
-            'Active' => '1',
-            'ploeg' => $this->Leiding->ploeg(),
-        );
+        $Data['Title']  = 'Leidingsploeg';
+        $Data['Active'] = '1';
+        $Data['ploeg']  = $this->Leiding->ploeg();
 
         $this->load->view('components/header', $Data);
         $this->load->view('components/navbar', $Data);
@@ -65,12 +63,10 @@ class leiding extends CI_Controller
     {
         if ($this->Session) {
             if ($this->Session['Admin'] == 1) {
-                $data = array(
-                    'Title' => 'Leiding',
-                    'Active' => '6',
-                    'Admin' => $this->Leiding->Administrators(),
-                    'Leiding' => $this->Leiding->Leiding(),
-                );
+                $data['Title']   = 'Leiding';
+                $data['Active']  = '6';
+                $data['Admin']   = $this->Leiding->Administrators();
+                $data['Leiding'] = $this->Leiding->leiding();
 
                 $this->load->view('components/admin_header', $data);
                 $this->load->view('components/navbar_admin', $data);
@@ -94,10 +90,8 @@ class leiding extends CI_Controller
     {
         if ($this->Session) {
             // General variables
-            $data = array(
-                'Title' => 'Account configuratie',
-                'Active' => '7',
-            );
+            $data['Title']  = 'Account configuratie';
+            $data['Active'] = '7';
 
             // Database variables. Not an array because it is one item.
             $DB['Account'] = $this->Leiding->Account();
@@ -122,20 +116,18 @@ class leiding extends CI_Controller
 
             // Dun'no where i used this variables.
             // I was drunk when i writing those variables.
-            $data['id'] = $Session['id'];
+            $data['id']    = $Session['id'];
             $data['Admin'] = $Session['Admin'];
-            $data['User'] = $Session['username'];
-            $data['Tak'] = $Session['Tak'];
+            $data['User']  = $Session['username'];
+            $data['Tak']   = $Session['Tak'];
             $data['Theme'] = $Session['Theme'];
 
             // New database
-            $Update = array(
-                "id" => $data['id'],
-                "Admin" => $data['Admin'],
-                "username" => $data['User'],
-                "Tak" => $data['Tak'],
-                "Theme" => $this->input->post('Theme'),
-            );
+            $Update['id']       = $data['id'];
+            $Update['Admin']    = $data['Admin'];
+            $Update['username'] = $data['User'];
+            $Update['Tak']      = $data['Tak'];
+            $Update['Theme']    = $this->input->post('Theme');
 
             $this->session->set_userdata('logged_in', $Update);
 
@@ -154,11 +146,9 @@ class leiding extends CI_Controller
     {
         if ($this->Session) {
             // Mail variables
-            $Mail = array(
-                'Mail' => $this->input->post('Mail'),
-                'Pass' => random_string('alnum', 16),
-                'Name' => $this->input->post('Naam'),
-            );
+            $Mail['Mail'] = $this->input->post('Mail');
+            $Mail['Pass'] = random_string('alnum', 16);
+            $Mail['Name'] = $this->input->post('Naam');
 
             $Mail_view = $this->load->view('email/login', $Mail, TRUE);
 
@@ -237,10 +227,8 @@ class leiding extends CI_Controller
                 $Leiding = $this->Leiding->Get_user();
 
                 foreach ($Leiding as $Output) {
-                    $Mailing = array(
-                        'Naam' => $Output->username,
-                        'Email' => $Output->Mail,
-                    );
+                    $Mailing['Naam']  = $Output->username;
+                    $Mailing['Email'] = $Output->Mail;
                 }
 
                 $this->Log->Add_admin();

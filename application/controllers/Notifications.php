@@ -40,10 +40,8 @@ class Notifications extends CI_Controller
             // Logging
             user_log($this->Session['username'], 'Heeft geprobeerd om de notificaties te herstellen.');
 
-            $Person = array(
-                'Naam'  => $this->Auth['username'],
-                'Email' => $this->Auth['Email'],
-            );
+            $Person['Naam']  = $this->Auth['username'];
+            $Person['Email'] = $this->Auth('Email');
 
             $this->Notification->Herstel_verhuur($Person);
 
